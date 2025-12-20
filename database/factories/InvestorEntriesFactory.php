@@ -20,8 +20,8 @@ class InvestorEntriesFactory extends Factory
     {
         return [
             'investor_id' => Investors::pluck('id')->random(),
-            'investment_amount',
-            'investment_date',
+            'investment_amount' => fake()->numberBetween(1000, 10000),
+            'investment_date' => fake()->date(),
         ];
     }
 }
