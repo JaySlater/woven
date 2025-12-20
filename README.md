@@ -17,6 +17,10 @@ make setup
 
 You can use the following postman collection: [https://www.postman.com/jayslater2001-7848394/workspace/woven/collection/50956340-e7c9338b-9c1c-4eb8-ba7e-75eff87583bf?action=share&source=copy-link&creator=50956340](https://www.postman.com/jayslater2001-7848394/workspace/woven/collection/50956340-e7c9338b-9c1c-4eb8-ba7e-75eff87583bf?action=share&source=copy-link&creator=50956340)
 
+The only request that needs data is the POST localhost:8000/api/v1/import
+
+Set the Body to form-data, and add csvFile as a key, and set from text to file, the upload the investor csv
+
 ## Next Steps / Improvements
 
 - Create inhouse csv importer instead of using a package, this is so we can control the security and ensure that if that package was to get hacked in some way it wouldn't affect us
