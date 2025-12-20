@@ -12,11 +12,10 @@ help: ## Print help.
 ps: ## Show containers.
 	@docker compose ps
 
-setup:
+setup: copy-env build start migrate
+
+copy-env:
 	@cp .env.example .env
-	build
-	start
-	migrate
 
 start: ## Start all containers
 	@docker compose -f docker-compose.yml up --force-recreate -d

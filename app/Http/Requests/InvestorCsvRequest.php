@@ -23,7 +23,19 @@ class InvestorCsvRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'csvFile' => 'required|mimes:csv,txt,xlsx|max:2048'
+            'csvFile' => 'required|mimes:csv,txt,xlsx'
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    public function messages(): array
+    {
+        return [
+            'required' => 'Please upload a CSV file',
+            'file' => 'Please upload a valid file',
+            'mimes' => 'Please upload a CSV file',
         ];
     }
 }
