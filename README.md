@@ -9,7 +9,11 @@ To use this project you will need to use Docker
 
 First, copy this project into a local directory
 
-Then copy the .env-example file and name the new file .env
+Then copy the .env-example file and name the new file .env, then run
+
+```
+php artisan key:generate
+```
 
 To build and start the docker containers run:
 
