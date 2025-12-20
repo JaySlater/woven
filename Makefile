@@ -12,9 +12,16 @@ help: ## Print help.
 ps: ## Show containers.
 	@docker compose ps
 
+setup:
+	@cp .env.example .env
+	build
+	start
+	migrate
+
 start: ## Start all containers
 	@docker compose -f docker-compose.yml up --force-recreate -d
 	@docker ps
+
 build: 	## Build all containers
 	@docker compose build
 stop: ## Stop all containers
