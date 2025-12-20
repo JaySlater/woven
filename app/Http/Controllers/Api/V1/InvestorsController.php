@@ -55,4 +55,13 @@ class InvestorsController extends Controller
             'averageAge' => round(Investors::avg('age'))
         ]);
     }
+
+    public function getInvestorsAndAmounts(): JsonResponse
+    {
+        $investors = Investors::select(['id', 'name', 'age'])
+            ->withSum('investorEntries as investment_amount', 'investment_amount')
+            ->orderBy('id')
+            ->cursorPaginate(15);
+        return response()->json($investors);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Database\Factories\InvestorsFactory;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -43,8 +44,21 @@ class Investors extends Authenticatable
         'age',
     ];
 
-    public function investment_entries(): HasMany
+    public function investorEntries(): HasMany
     {
-        return $this->hasMany(InvestorEntries::class);
+        return $this->hasMany(InvestorEntries::class, 'investor_id');
     }
+
+    protected function investmentAmount(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                if ($value === null) {
+                    return 0.0;
+                }
+                return round((float) $value, 2);
+            },
+        );
+    }
+
 }

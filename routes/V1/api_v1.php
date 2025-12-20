@@ -9,3 +9,4 @@ Route::post('import', [InvestorsController::class, 'importRecord']);
 Route::get('average-age', [InvestorsController::class, 'getAverageAge']);
 Route::get('average-investment-amount', [InvestorEntriesController::class, 'getAverageInvestmentAmount']);
 Route::get('total-investments', [InvestorEntriesController::class, 'getTotalInvestments']);
+Route::get('all-investor-amounts', [InvestorsController::class, 'getInvestorsAndAmounts']);

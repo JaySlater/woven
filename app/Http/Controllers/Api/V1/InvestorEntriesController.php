@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\InvestorCsvRequest;
-use App\Imports\InvestorAndEntriesImport;
 use App\Models\InvestorEntries;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 
 class InvestorEntriesController extends Controller
 {
