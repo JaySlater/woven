@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvestorCsvRequest;
 use App\Imports\InvestorAndEntriesImport;
+use App\Models\InvestorEntries;
+use App\Models\Investors;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 
@@ -41,6 +43,16 @@ class InvestorsController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Operation successful.'
-        ], 201);
+        ]);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function getAverageAge(): JsonResponse
+    {
+        return response()->json([
+            'averageAge' => round(Investors::avg('age'))
+        ]);
     }
 }
