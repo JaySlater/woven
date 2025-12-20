@@ -22,3 +22,6 @@ stop: ## Stop all containers
 
 migrate: ## Run migration files
 	docker exec ${CONTAINER_PHP} php artisan migrate
+
+migrate-rollback: ## Rollback migration files
+	docker exec ${CONTAINER_PHP} php artisan migrate:rollback --step=1
