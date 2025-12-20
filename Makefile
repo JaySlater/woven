@@ -25,3 +25,6 @@ migrate: ## Run migration files
 
 migrate-rollback: ## Rollback migration files
 	docker exec ${CONTAINER_PHP} php artisan migrate:rollback --step=1
+
+optimize-clear:
+	docker exec ${CONTAINER_PHP} php artisan optimize:clear

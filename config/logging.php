@@ -127,6 +127,12 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'csv_import_log_file' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/csv/csv_import.log'),
+            'replace_placeholders' => true,
+        ],
+
     ],
 
 ];
